@@ -11,11 +11,11 @@ $('document').ready(function(){
 				$.each(data, function(key,val){
 					item.push (` <li >  The valyuta  is ${val.ccy}, its 
 						// cost for buy ${val.buy} and for sale ${val.sale} </li> `);					
-					items.push ({
-						[val.ccy]:{
-							ccy: val.ccy,
-							buy: val.buy,
-							sale: val.sale 
+				items.push ({
+						[val.ccy] : {
+							'ccy': val.ccy,
+							'buy': val.buy,
+							'sale': val.sale 
 						}
 					});
 				
@@ -30,33 +30,21 @@ $('document').ready(function(){
 		  	
 				let suma = $('#suma').val();
 				let valyuta = $('#valyuta').val();
-				// console.log(valyuta);
-				let res ;
-				// if(suma && valyuta){
-				
-					let bol = false;
-					// console.log(items.length);
-					// while(bol){
-						for (let i = 0; i < items.length; i++){
-							console.log(items[i]);
-							let itw = items[i].ccy;
-							console.log(itw);
-							if(valyuta == itw){
-								console.log('yes');
-								console.log(items[i]);
-								let buy = parseInt(items[i].buy);
-								console.log(items[i].buy);
-								res = buy * suma;
-								console.log(`RESULT IS ${res}`);
-								let  result = $("<p> </p>").text(res);
-								$('body').append(result);
-								bol = true;
-								// break;
-							}
-						}	
-					// }
-					
-				// }	
+				let res = 0 ;
+			
+				// if(valyuta && suma ){	
+					let buy;
+					console.log(items);
+					for(let k = 0; k < items.length; k++){
+						console.log(items[k]);
+						// buy = items[k][valyuta].buy;
+						// if(items[k])
+						// break;
+					}
+					res = buy * suma;
+					let  result = $("<p> </p>").text(res);
+					$('body').append(result);
+				// }
 
 		  	});				
 		})();
